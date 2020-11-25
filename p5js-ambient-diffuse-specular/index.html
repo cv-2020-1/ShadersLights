@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" width="device-width," initial-scale="1.0," maximum-scale="1.0," user-scalable="0" />
+    <style>body {padding: 0;margin: 0;overflow: hidden !important;}</style>
+    <meta author="duvan andrade cuenca - 02-06-97 - de la universidad nacional de colombia">
+    <title>Luz Combinada</title>
+
+    <link rel="stylesheet" type="text/css" href="colorpicker/css/colorpicker.css">
+    <link rel="stylesheet" type="text/css" href="colorpicker/css/layout.css">
+    <script type="text/javascript" src="colorpicker/js/jquery.js"></script>
+    <script type="text/javascript" src="colorpicker/js/colorpicker.js"></script>
+    <script type="text/javascript" src="colorpicker/js/eye.js"></script>
+    <script type="text/javascript" src="colorpicker/js/utils.js"></script>      
+  </head>
+  <body>
+    <div id="p5" style="position:relative;height: 520px !important;">
+      <p style="position: absolute; top: 35px; left: 10px;color: white;">Constante de Luz Ambiental</p>
+      <p style="position: absolute; top: 35px; left: 200px;color: white;">Brillo Especular</p>
+      <p style="position: absolute; top: 35px; left: 350px;color: white;">Constante de Luz Especular</p>
+      <p style="position: absolute; top: 95px; left: 10px;color: white;">X Luz</p>
+      <p style="position: absolute; top: 95px; left: 200px;color: white;">Y Luz</p>
+      <p style="position: absolute; top: 95px; left: 350px;color: white;">Z Luz</p>
+      <p style="position: absolute; top: 155px; left: 10px;color: white;">X Ojo</p>
+      <p style="position: absolute; top: 155px; left: 200px;color: white;">Y Ojo</p>
+      <p style="position: absolute; top: 155px; left: 350px;color: white;">Z Ojo</p>
+      <p style="position: absolute; top: 215px; left: 10px;color: white;">Atenuación</p>
+    </div> 
+
+    <div style="display: inline-block;padding: 10px;margin: 0 5px;">
+      <p style="font-size:22px; text-align: left; margin: 5px 0;">Color de la Luz</p>
+      <div class="colorSelector" id="color1">      
+        <div style="background-color: #ffffff"></div>
+      </div>      
+    </div>
+
+    <div style="display: inline-block;padding: 10px;margin: 0 5px;">
+      <p style="font-size:22px; text-align: left; margin: 5px 0;">Color del objeto</p>
+      <div class="colorSelector" id="color2">      
+        <div style="background-color: #ffffff"></div>
+      </div>      
+    </div>     
+
+    <script src="p5.min.js" type="application/javascript" charset="utf-8"></script>
+    <script src="sketch.js"></script>
+   <script type="text/javascript">
+      var r = 255,g = 255,b = 255;
+      var r2 = 255, g2 = 255, b2 = 255;
+
+      var colorpicker1 = $('#color1').ColorPicker({
+        color: '#ffffff',
+        onChange: function (hsb, hex, rgb, el) {
+          $('#color1 div').css('backgroundColor', '#' + hex);
+          r = rgb.r;
+          g = rgb.g;
+          b = rgb.b;
+        }
+      });
+
+      $('#color2').ColorPicker({
+        color: '#ffffff',
+        onChange: function (hsb, hex, rgb) {
+          $('#color2 div').css('backgroundColor', '#' + hex);
+          r2 = rgb.r;
+          g2 = rgb.g;
+          b2 = rgb.b;          
+        }
+      });  
+
+      /* 
+        Yo Duvan Andrade doy creditos a colorpicker https://www.eyecon.ro/colorpicker/#about
+      */        
+    </script>        
+  </body>
+</html>
